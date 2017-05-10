@@ -1,0 +1,9 @@
+<litepal>
+    <dbname value="fibercloud_weather"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.fibercloudweather.android.db.Province"/>
+        <mapping class="com.fibercloudweather.android.db.City"/>
+        <mapping class="com.fibercloudweather.android.db.County"/>
+    </list>
+</litepal>

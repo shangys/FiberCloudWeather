@@ -1,6 +1,7 @@
 package com.fibercloudweather.android;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -79,6 +80,12 @@ public class ChooseAreaFragment extends Fragment {
                 }else if (currentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(position);
                     queryCounties();
+                }else if (currentLevel == LEVEL_COUNTY){
+                    String weatherId = countyList.get(position).getWeatherId();//获取当前点击位置的县的天气id
+                    Intent intent = new Intent(getActivity(),WeatherActivity.class);//进入到天气内容显示界面
+                    intent.putExtra("weather_id",weatherId);//把天气id以键值对的形式保存到了intent里并传递到了WeatherActivity活动中
+                    startActivity(intent);
+                    getActivity().finish();//关闭当前界面
                 }
             }
         });
